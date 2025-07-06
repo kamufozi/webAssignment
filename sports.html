@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports - Bikkini Bottom News</title>
+    <link rel="icon" href="imgs/fish.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        nav a.active {
+            background: #e74c3c;
+            color: white;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: #e74c3c;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Sports Grid */
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .sport-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sport-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
+        }
+
+        .sport-card-image {
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .sport-card-content {
+            padding: 20px;
+        }
+
+        .sport-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .sport-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: #e74c3c;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+        }
+        .fishz{
+           border-radius: 50%;
+
+        }
+
+        /* Sport Colors */
+        .football {
+            background: #27ae60;
+        }
+        .gyokores{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position:center 20% ;
+        }
+        .hamilton{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position:center 20% ;
+        }
+        .basketball {
+            background: #f39c12;
+        }
+
+        .tennis {
+            background: #9b59b6;
+        }
+
+        .swimming {
+            background: #3498db;
+        }
+
+        .baseball {
+            background: #34495e;
+        }
+
+        .golf {
+            background: #16a085;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .sports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span><img src="imgs/fish.svg" class="fishz" alt=""></span> 
+                    Bikkini Bottom News
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="udukino.html" class="active">Sports</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="technology.html">Technology</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="entertainment.html">Entertainment</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="registration.html">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>⚽ Sports News</h1>
+            <p>Latest updates from the world of sports</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sports-grid">
+            <div class="sport-card">
+                <div class="sport-card-image football">
+                    <img src="imgs/gyokores.webp" class="gyokores" alt="">
+                </div>
+                <div class="sport-card-content">
+                    <h3>Arsenal is winning the league</h3>
+                    <p>Viktor Gyökeres has made his intentions unequivocally clear: he only wants to join Arsenal. According to Fabrizio Romano, the Swedish striker has explicitly communicated this desire to Sporting Lisbon, even going as far as to state he will not return for pre-season training next week. This firm stance underscores his strong personal preference for a move to the Emirates, having already reached a total agreement on personal terms for a long-term contract with Arsenal, leaving no room for negotiation with any other interested clubs.</p>
+                    <a href="udukino.html" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="sport-card">
+                <div class="sport-card-image basketball">🏎️
+                    <!-- <img src="imgs/hamilton2.jpg" class="hamilton" alt=""> -->
+                </div>
+                <div class="sport-card-content">
+                    <h3>All eyes remain fixed on Lewis Hamilton</h3>
+                    <p>After a brief hiatus, the Formula 1 season roars back to life, and all eyes remain fixed on Lewis Hamilton as he navigates a pivotal phase of his illustrious career. While the Mercedes-AMG Petronas F1 Team has faced its share of challenges in recent seasons, Hamilton's relentless pursuit of perfection and his undimmed competitive spirit continue to define his legacy. Each race resumption presents a fresh opportunity for the seven-time World Champion to demonstrate his unparalleled skill and strategic prowess, whether it's battling for a podium finish or meticulously working with his team to optimize performance. Fans and pundits alike will be watching closely to see if Hamilton, with his legendary resilience, can reignite his championship form and further cement his place as one of the sport's all-time greats as the season progresses.</p>
+                    <a href="udukino.html" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="sport-card">
+                <div class="sport-card-image tennis">🎾</div>
+                <div class="sport-card-content">
+                    <h3>Tennis Tournament Begins</h3>
+                    <p>World's top players gather for the most prestigious tournament of the year with record prize money.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="sport-card">
+                <div class="sport-card-image swimming">🏊</div>
+                <div class="sport-card-content">
+                    <h3>Swimming World Records Shattered</h3>
+                    <p>Multiple world records broken at the international championships as athletes push human limits.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="sport-card">
+                <div class="sport-card-image baseball">⚾</div>
+                <div class="sport-card-content">
+                    <h3>Baseball Season Highlights</h3>
+                    <p>Amazing plays and incredible performances mark this season as one of the most exciting in decades.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="sport-card">
+                <div class="sport-card-image golf">⛳</div>
+                <div class="sport-card-content">
+                    <h3>Golf Masters Tournament</h3>
+                    <p>Professional golfers compete in challenging conditions for the coveted green jacket and glory.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
