@@ -11,31 +11,45 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         /* CSS Variables for themes */
         :root {
             --bg-color: #f5f5f5;
-            --card-bg: white;
-            --text-color: #333;
-            --text-secondary: #666;
-            --border-color: #eee;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --border-color: #eeeeee;
             --shadow: rgba(0,0,0,0.1);
+            --header-bg: #ffffff;
+            --footer-bg: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --register-btn: #3498db;
+            --register-btn-hover: #2980b9;
         }
 
-        /* Dark mode variables */
-        #dark-mode:checked ~ * {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-color: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --border-color: #444;
-            --shadow: rgba(0,0,0,0.3);
-        }
-
-        /* Dark mode toggle styles */
+        /* Dark mode checkbox */
         #dark-mode {
             display: none;
         }
 
+        /* Dark mode variables */
+        #dark-mode:checked ~ * {
+            --bg-color: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #333333;
+            --shadow: rgba(0,0,0,0.5);
+            --header-bg: #1a1a1a;
+            --footer-bg: #111111;
+            --accent-color: #4a9eff;
+            --accent-hover: #3d8bdb;
+            --register-btn: #4a9eff;
+            --register-btn-hover: #3d8bdb;
+        }
+
+        /* Dark mode toggle styles */
         .dark-toggle {
             position: fixed;
             top: 20px;
@@ -44,23 +58,35 @@
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 25px;
-            padding: 8px 12px;
+            padding: 10px 15px;
             cursor: pointer;
             font-size: 14px;
             color: var(--text-color);
-            box-shadow: 0 2px 10px var(--shadow);
+            box-shadow: 0 4px 15px var(--shadow);
             transition: all 0.3s ease;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-        }
-        
-        .fishz {
-           border-radius: 50%;
+            user-select: none;
         }
 
+        .dark-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .fishz {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Container for all content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -69,9 +95,11 @@
 
         /* Header */
         header {
-            background: white;
+            background: var(--header-bg);
             padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .header-content {
@@ -83,56 +111,83 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--text-color);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--accent-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 5px;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
-            padding: 8px 15px;
-            border-radius: 5px;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         nav a:hover {
-            background: #3498db;
+            background: var(--accent-color);
             color: white;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: #e74c3c;
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Registration Form Styles */
         .registration-body {
-            display: grid;
+            display: flex;
             justify-content: center;
             align-items: center;
             padding: 40px;
             margin: 30px 0;
         }
-
         .form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 400px;
-            margin: auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            /* Increased max-width to give more space for labels */
+            max-width: 500px; /* Changed from 400px to 500px */
         }
 
+        .form-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px var(--shadow);
+        }
         .form-container h1 {
             text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            font-size: 28px;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            /* Slightly reduced gap for better fit, especially on smaller screens */
+            gap: 15px; /* Changed from 20px to 15px */
         }
 
         .form-group {
@@ -141,54 +196,145 @@
         }
 
         label {
-            text-align: right;
             margin-bottom: 5px;
-            font-weight: bold;
+            font-weight: 600;
+            color: var(--text-color);
+            /* Added word-break to handle long words */
+            word-break: break-word;
         }
 
         input, select, textarea {
-            padding: 8px;
-            border: 1px solid gray;
-            border-radius: 10px;
-            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            transition: all 0.3s ease;
         }
 
-        .full-width {
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+         .full-width {
             grid-column: span 2;
             text-align: center;
         }
 
         button {
-            background-color: #3498db;
+            background: var(--register-btn);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: 600;
             width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
 
         button:hover {
-            background-color: #2980b9;
+            background: var(--register-btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
 
         .form-footer {
-            background-color: rgb(220, 223, 225);
+            background: var(--card-bg);
             padding: 10px;
             text-align: center;
-            color: #2c3e50;
-            border-radius: 5px;
+            color: var(--text-color);
+            border-radius: 8px;
             margin-top: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
         .form-footer a {
-            color: #3498db;
+            color: var(--accent-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .form-footer a:hover {
+            color: var(--accent-hover);
             text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 800px) {
+            .dark-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .form-container {
+                padding: 30px;
+                /* Adjust max-width for smaller screens if needed, but 500px should work well */
+                max-width: 90%; /* Keeping it flexible for various tablet sizes */
+            }
+
+            .form-container h1 {
+                font-size: 24px;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+                /* Reduce gap for mobile view */
+                gap: 10px; /* Further reduced gap for single column layout */
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .registration-body {
+                padding: 20px;
+            }
+
+            .form-container {
+                padding: 20px;
+                max-width: 100%; /* Allow it to take full width on very small screens */
+            }
+
+            .form-container h1 {
+                font-size: 20px;
+            }
+
+            input, select, textarea {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -209,7 +355,7 @@
                         <li><a href="health.html">Health</a></li>
                         <li><a href="entertainment.html">Entertainment</a></li>
                         <li><a href="login.html">Login</a></li>
-                        <li><a href="registration.html" style="background: #3498db; color: white;">Register</a></li>
+                        <li><a href="registration.html" class="active">Register</a></li>
                     </ul>
                 </nav>
             </div>
@@ -222,80 +368,69 @@
             
             <form>
                 <div class="form-group">
-                    <label for="fullname">
-                        <input type="text" id="full-name" placeholder="Full name" required/>
-                    </label>
+                    <label for="fullname">Full name</label>
+                    <input type="text" id="full-name" placeholder="Full name" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">
-                        <input type="email" id="email" placeholder="Email" required/>
-                    </label>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="newpassword">
-                        <input type="password" id="new-password" pattern="[a-z0-5]{8,}" placeholder="New Password" required />
-                    </label>
+                    <label for="newpassword">New Password</label>
+                    <input type="password" id="new-password" pattern="[a-z0-5]{8,}" placeholder="New Password" required />
                 </div>
 
                 <div class="form-group">
-                    <label for="date">
-                        <input type="date" id="date" required/>
-                    </label>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="address">
-                        <input type="text" id="address" placeholder="Address" required/>
-                    </label>
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Address" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="number">
-                        <input type="number" id="number" placeholder="Contact number" required>
-                    </label>
+                    <label for="number">Contact number</label>
+                    <input type="number" id="number" placeholder="Contact number" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="occupation">
-                        <input type="text" id="occupation" placeholder="Occupation" required/>
-                    </label>
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" placeholder="Occupation" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="marital-status">
-                        <select id="marital-status" name="marital-status" required>
-                            <option value="">(select one)</option>
-                            <option value="married">Married</option>
-                            <option value="single">Single</option>
-                            <option value="divorced">Divorced</option>
-                            <option value="widowed">Widowed</option>
-                        </select>
-                    </label>
+                    <label for="marital-status">Marital status</label>
+                    <select id="marital-status" name="marital-status" required>
+                        <option value="">(select one)</option>
+                        <option value="married">Married</option>
+                        <option value="single">Single</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="gender">
-                        <select id="gender" required>
-                            <option value="">(select one)</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </label>
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="">(select one)</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="religion">
-                        <input type="text" id="religion" name="religion" placeholder="Religion" required/>
-                    </label>
+                    <label for="religion">Religion</label>
+                    <input type="text" id="religion" name="religion" placeholder="Religion" required/>
                 </div>
 
                 <div class="form-group full-width">
-                    <label for="bio">
-                        <textarea id="bio" rows="3" placeholder="Bio (optional)" required></textarea>
-                    </label>
+                    <label for="bio">Bio (optional)</label>
+                    <textarea id="bio" rows="3" placeholder="Bio (optional)" required></textarea>
                 </div>
 
                 <div class="form-footer full-width">

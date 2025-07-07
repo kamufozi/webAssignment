@@ -11,31 +11,45 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         /* CSS Variables for themes */
         :root {
             --bg-color: #f5f5f5;
-            --card-bg: white;
-            --text-color: #333;
-            --text-secondary: #666;
-            --border-color: #eee;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --border-color: #eeeeee;
             --shadow: rgba(0,0,0,0.1);
+            --header-bg: #ffffff;
+            --footer-bg: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --login-btn: #3498db;
+            --login-btn-hover: #2980b9;
         }
 
-        /* Dark mode variables */
-        #dark-mode:checked ~ * {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-color: #e0e0e0;
-            --text-secondary: #b0b0b0;
-            --border-color: #444;
-            --shadow: rgba(0,0,0,0.3);
-        }
-
-        /* Dark mode toggle styles */
+        /* Dark mode checkbox */
         #dark-mode {
             display: none;
         }
 
+        /* Dark mode variables */
+        #dark-mode:checked ~ * {
+            --bg-color: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #333333;
+            --shadow: rgba(0,0,0,0.5);
+            --header-bg: #1a1a1a;
+            --footer-bg: #111111;
+            --accent-color: #4a9eff;
+            --accent-hover: #3d8bdb;
+            --login-btn: #4a9eff;
+            --login-btn-hover: #3d8bdb;
+        }
+
+        /* Dark mode toggle styles */
         .dark-toggle {
             position: fixed;
             top: 20px;
@@ -44,24 +58,35 @@
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 25px;
-            padding: 8px 12px;
+            padding: 10px 15px;
             cursor: pointer;
             font-size: 14px;
             color: var(--text-color);
-            box-shadow: 0 2px 10px var(--shadow);
+            box-shadow: 0 4px 15px var(--shadow);
             transition: all 0.3s ease;
-        }        
+            user-select: none;
+        }
+
+        .dark-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-        }
-        
-        .fishz {
-           border-radius: 50%;
+            font-family: 'Arial', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            line-height: 1.6;
         }
 
+        .fishz {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Container for all content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -70,9 +95,11 @@
 
         /* Header */
         header {
-            background: white;
+            background: var(--header-bg);
             padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .header-content {
@@ -84,26 +111,43 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--text-color);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--accent-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 5px;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
-            padding: 8px 15px;
-            border-radius: 5px;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         nav a:hover {
-            background: #3498db;
+            background: var(--accent-color);
             color: white;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: #e74c3c;
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Login Form */
@@ -114,18 +158,28 @@
         }
 
         .login-form {
-            background: white;
+            background: var(--card-bg);
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
             width: 100%;
             max-width: 400px;
         }
 
+        .login-form:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+
         .login-form h2 {
             text-align: center;
-            color: #2c3e50;
+            color: var(--text-color);
             margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .form-group {
@@ -135,43 +189,115 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
+            font-weight: 600;
+            color: var(--text-color);
         }
 
         .form-group input {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             font-size: 16px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
         }
 
         .btn {
-            background: #3498db;
+            background: var(--login-btn);
             color: white;
             padding: 12px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            font-weight: 600;
             width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
 
         .btn:hover {
-            background: #2980b9;
+            background: var(--login-btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
 
         .text-center {
             text-align: center;
+            margin-top: 20px;
         }
 
         .link {
-            color: #3498db;
+            color: var(--accent-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .link:hover {
+            color: var(--accent-hover);
             text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 800px) {
+            .dark-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .login-form {
+                padding: 30px;
+            }
+
+            .login-form h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .login-form {
+                padding: 20px;
+            }
+
+            .login-form h2 {
+                font-size: 20px;
+            }
+
+            .form-group input {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -191,7 +317,7 @@
                         <li><a href="technology.html">Technology</a></li>
                         <li><a href="health.html">Health</a></li>
                         <li><a href="entertainment.html">Entertainment</a></li>
-                        <li><a href="login.html" style="background: #3498db; color: white;">Login</a></li>
+                        <li><a href="login.html" class="active">Login</a></li>
                         <li><a href="registration.html">Register</a></li>
                     </ul>
                 </nav>
@@ -217,11 +343,11 @@
                     
                     <button type="submit" class="btn">Login</button>
                     
-                    <div class="text-center" style="margin-top: 20px;">
+                    <div class="text-center">
                         <a href="#" class="link">Forgot Password?</a>
                     </div>
                     
-                    <div class="text-center" style="margin-top: 20px;">
+                    <div class="text-center">
                         Don't have an account? <a href="registration.html" class="link">Register here</a>
                     </div>
                 </form>
