@@ -11,7 +11,46 @@
             padding: 0;
             box-sizing: border-box;
         }
+        /* CSS Variables for themes */
+        :root {
+            --bg-color: #f5f5f5;
+            --card-bg: white;
+            --text-color: #333;
+            --text-secondary: #666;
+            --border-color: #eee;
+            --shadow: rgba(0,0,0,0.1);
+        }
 
+        /* Dark mode variables */
+        #dark-mode:checked ~ * {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #444;
+            --shadow: rgba(0,0,0,0.3);
+        }
+
+        /* Dark mode toggle styles */
+        #dark-mode {
+            display: none;
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-color);
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+        }
         body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
@@ -199,6 +238,8 @@
     </style>
 </head>
 <body>
+    <input type="checkbox" id="dark-mode">
+    <label for="dark-mode" class="dark-toggle">🌓 Toggle Dark Mode</label>
     <header>
         <div class="container">
             <div class="header-content">
